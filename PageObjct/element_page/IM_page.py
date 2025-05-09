@@ -44,13 +44,9 @@ class IMPage(BasePage):
     # 文件
     el_document = (MobileBy.ACCESSIBILITY_ID, 'chat_more_document_light')
     # 选择图片
-    el_picture_choose = (MobileBy.XPATH,
-                         '//XCUIElementTypeApplication[@name="Zapry"]/XCUIElementTypeWindow/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView/XCUIElementTypeCell[4]/XCUIElementTypeOther/XCUIElementTypeButton')
     # 发送图片
     el_send_picture = (MobileBy.ACCESSIBILITY_ID, '发送(1)')
     # 选择视频
-    el_video_choice = (MobileBy.XPATH,
-                       '(//XCUIElementTypeImage[@name="/var/containers/Bundle/Application/7024A092-04C5-4391-8650-52A234FC16EB/Zapry.app/TZImagePickerController.bundle/photo_def_photoPickerVc@2x.png"])[2]')
 
     '''发红包'''
     # 绑定钱包弹窗-立即设置
