@@ -4,7 +4,6 @@ from time import sleep
 from PageObjct.element_page.IM_page import IMPage
 from PageObjct.element_page.club_page import ClubPage
 from common.wait_util import WaitPage
-from web import driver
 
 
 class ClubStep(ClubPage, IMPage):
@@ -152,7 +151,7 @@ class ClubStep(ClubPage, IMPage):
         # 选择侧边栏第一个部落
         self.click(self.el_club1)
         # 网卡的时候加载慢，使用显式等待
-        driver.implicitly_wait(10)
+        self.driver.implicitly_wait(10)
         # 选择”聊天房间“房间
         self.click(self.el_choose_ChartRoom1)
         # 输入框内输入消息
@@ -174,7 +173,7 @@ class ClubStep(ClubPage, IMPage):
         # 上滑两次确保到了相册顶部
         self.down_slide()
         self.down_slide()
-        driver.implicitly_wait(10)
+        self.driver.implicitly_wait(10)
         # 选择第4张图片
         self.click(self.el_picture_choose)
         # 点击发送
@@ -194,7 +193,7 @@ class ClubStep(ClubPage, IMPage):
         # 上滑两次确保到了相册顶部
         self.down_slide()
         self.down_slide()
-        driver.implicitly_wait(10)
+        self.driver.implicitly_wait(10)
         # 选择第2个视频
         self.click(self.el_video_choice)
         # 点击发送

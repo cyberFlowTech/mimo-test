@@ -194,7 +194,7 @@ class ClubPage(BasePage):
     '''应用房间相关'''
     # 未绑定钱包点击应用房间的弹窗
     el_popup_BindWallet = (MobileBy.XPATH,'//XCUIElementTypeButton[@name="立即添加"]')
-    el_PayPwd = (MobileBy.XPATH,'//XCUIElementTypeKey[@name="1"]')
+
     # 应用房间跳转提示
     el_popup_jumping = (MobileBy.XPATH,'//XCUIElementTypeButton[@name="确定"]')
     # 应用房间聊天气泡
@@ -225,3 +225,4 @@ class ClubPage(BasePage):
     # 跳过生物识别
     el_recognition_skip = (MobileBy.XPATH, '//XCUIElementTypeButton[@name="跳过"]')
     # 设置密码为“111111”
+    el_PayPwd = (MobileBy.XPATH, '//XCUIElementTypeKey[@name="1"]')

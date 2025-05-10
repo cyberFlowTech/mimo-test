@@ -9,4 +9,4 @@ ios_caps:
   # noReset: True  # 不要重置App，如果为False的话，执行完脚本后，app的数据会清空，比如你原本登录了，执行完脚本后就退出登录了
   # newCommandTimeout: 6000  # 超时时间可以设置久一些，太短，用例比较多会报错
   automationName: XCUITest  # 自动化测试引擎 ，默认Appium
-  udid: 00008101-000B38942E78001E
+  udid: 00008101-000B38942E78001E # ios手机的udid
