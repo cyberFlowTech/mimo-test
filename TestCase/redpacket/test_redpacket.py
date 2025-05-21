@@ -12,23 +12,23 @@ from common.start_app import start_app
 
 
 class TestRedPacket:
-    '''发红包用例'''
+    def set_up(self):
+        # 回到根目录
+        rootpath = os.path.abspath(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
+        # yaml文件的绝对路径
+        path = os.path.join(rootpath, 'config/config.yaml')
+        # 拿到数据
+        data = readYaml(path)
+        # 连接Appium Server，初始化自动化环境
+        self.driver = webdriver.Remote('http://localhost:4723/wd/hub', data['ios_caps'])
+
+    def teardown(self):
+        self.driver.quit()
 
     '''单聊发红包'''
 
-    def test_redpacket(self, start_app):
-        self.driver = start_app
-        step = RedPacketStep(self.driver)
-        step.create_redpacket1("0.01", "单聊自动化脚本红包", "111111")
-        ass = AppAssertPage(self.driver)
-        el = '单聊自动化脚本红包'
-        sleep(1)
-        assert ass.is_element_present(MobileBy.ACCESSIBILITY_ID, el) == True, '没有找到红包元素，测试失败'
-
-    '''密码错误，发红包提示'''
-
-    def test_redpacket_fail(self, start_app):
-        self.driver = start_app
+    def test_redpacket(self):
+        self.set_up()
         step = RedPacketStep(self.driver)
         step.create_redpacket1("0.01", "<UNK>", "111122")
         ass = AppAssertPage(self.driver)
