@@ -25,7 +25,7 @@ class TestRedPacket():
         sleep(1)
         assert ass.is_element_present(MobileBy.ACCESSIBILITY_ID, el) == True, '没有找到红包元素，测试失败'
 
-    '''密码错误，发红包失败'''
+    '''密码错误，发红包提示'''
 
     def test_redpacket_fail(self, start_app):
         self.driver = start_app
