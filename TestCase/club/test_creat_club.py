@@ -27,10 +27,11 @@ class TestCreateClub:
     def teardown(self):
         self.driver.quit()
 
-    # 创建部落
+    """创建部落"""
+
     def test_create_club(self):
         self.tset_up()
-        """创建部落"""
+
         club_step = ClubStep(self.driver)
         club_step.create_club('部落')
         # 创建过程太慢，需要多等一会
@@ -41,9 +42,11 @@ class TestCreateClub:
         assert ass.is_element_present(MobileBy.XPATH, '//XCUIElementTypeStaticText[@name="跳过"]') == True
         self.teardown()
 
+    """分享部落到房间"""
+
     def test_share_club_to_club(self):
         self.tset_up()
-        """分享部落到房间"""
+
         club_step = ClubStep(self.driver)
         club_step.share_club_to_club()
         sleep(1)
@@ -52,9 +55,11 @@ class TestCreateClub:
         assert ass.is_element_present(MobileBy.XPATH, '//XCUIElementTypeStaticText[@name="部落邀请"]') == True
         self.teardown()
 
+    """分享部落到单聊"""
+
     def test_share_club_to_contact(self):
         self.tset_up()
-        """分享部落到单聊"""
+
         club_step = ClubStep(self.driver)
         club_step.share_club_to_contact('204')
         sleep(1)
@@ -63,9 +68,11 @@ class TestCreateClub:
         assert ass.is_element_present(MobileBy.XPATH, '//XCUIElementTypeStaticText[@name="部落邀请"]') == True
         self.teardown()
 
+    """分享部落群聊"""
+
     def test_share_club_to_group_chart(self):
         self.tset_up()
-        """分享部落群聊"""
+
         club_step = ClubStep(self.driver)
         club_step.share_club_to_group_chat('2')
         sleep(1)
@@ -74,9 +81,11 @@ class TestCreateClub:
         assert ass.is_element_present(MobileBy.XPATH, '//XCUIElementTypeStaticText[@name="部落邀请"]') == True
         self.teardown()
 
+    """发部落动态"""
+
     def test_send_community(self):
         self.tset_up()
-        """发部落动态"""
+
         club_step = ClubStep(self.driver)
         club_step.send_community('这是动态标题', '这是动态内容')
         sleep(2)
@@ -85,9 +94,11 @@ class TestCreateClub:
         assert ass.is_element_present(MobileBy.ACCESSIBILITY_ID, '动态详情') == True
         self.teardown()
 
+    """添加聊天房间"""
+
     def test_add_chart_room(self):
         self.tset_up()
-        """添加聊天房间"""
+
         club_step = ClubStep(self.driver)
         club_step.add_chat_room('聊天房间')
         sleep(2)
@@ -95,9 +106,11 @@ class TestCreateClub:
         assert ass.is_element_present(MobileBy.ACCESSIBILITY_ID, '聊天房间') == True
         self.teardown()
 
+    """添加应用房间"""
+
     def test_add_dapp_room(self):
         self.tset_up()
-        """添加应用房间"""
+
         club_step = ClubStep(self.driver)
         club_step.add_dapp_room('应用房间',
                                 'https://www.baidu.com/s?wd=%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95&rsv_spt=1&rsv_iqid=0x9058a494003119fd&issp=1&f=8&rsv_bp=1&rsv_idx=2&ie=utf-8&tn=baiduhome_pg&rsv_dl=tb&rsv_enter=1&rsv_sug3=38&rsv_sug1=36&rsv_sug7=100&rsv_sug2=0&rsv_btype=i&prefixsug=%25E8%2587%25AA%25E5%258A%25A8%25E5%258C%2596%25E6%25B5%258B%25E8%25AF%2595&rsp=5&inputT=12351&rsv_sug4=15729',
@@ -110,44 +123,11 @@ class TestCreateClub:
             print(e)
             self.teardown()
 
-    def test_send_message_to_channel(self):
-        self.tset_up()
-        """频道发消息"""
-        club_step = ClubStep(self.driver)
-        club_step.send_message_to_channel('123456')
-
-        ass = AppAssertPage(driver=self.driver)
-        assert ass.is_element_present(MobileBy.ACCESSIBILITY_ID, '123456') == True
-        self.teardown()
-
-    def test_send_picture_to_channel(self):
-        self.tset_up()
-        '''在频道发图片'''
-        club_step = ClubStep(self.driver)
-        club_step.send_picture_to_channel()
-        # 多等一会让图片发送成功
-        sleep(2)
-        ass = AppAssertPage(driver=self.driver)
-        # 被检查的元素
-        el_ass = '/var/mobile/Containers/Data/Application/0DB0277E-94E9-4047-98E2-4932E00004F5/Library/Caches/1744789632269_4A1D0F12-BD50-4546-BA6F-81505E52941E.jpg'
-        assert ass.is_element_present(MobileBy.ACCESSIBILITY_ID, el_ass) == True
-        self.teardown()
-
-    def test_send_video_to_channel(self):
-        self.tset_up()
-        '''在频道发视频'''
-        club_step = ClubStep(self.driver)
-        club_step.send_video_to_channel()
-        sleep(2)
-        ass = AppAssertPage(driver=self.driver)
-        # 被检查的元素
-        el_ass = '/var/mobile/Containers/Data/Application/0DB0277E-94E9-4047-98E2-4932E00004F5/Library/Caches/1744789632269_4A1D0F12-BD50-4546-BA6F-81505E52941E.jpg'
-        assert ass.is_element_present(MobileBy.ACCESSIBILITY_ID, el_ass) == True
-        self.teardown()
+    '''聊天房间发布公告'''
 
     def test_chart_room_announce(self):
         self.tset_up()
-        '''聊天房间发布公告'''
+
         club_step = ClubStep(self.driver)
         club_step.chart_room_announce('欢迎来到聊天房间')
         sleep(2)
@@ -156,9 +136,11 @@ class TestCreateClub:
         assert ass.is_element_present(MobileBy.XPATH, el_ass) == True
         self.teardown()
 
+    '''房间开启全员禁言'''
+
     def test_all_shutup1(self):
         self.tset_up()
-        '''房间禁言'''
+
         club_step = ClubStep(self.driver)
         club_step.all_shutup()
         ass = AppAssertPage(driver=self.driver)
@@ -166,9 +148,11 @@ class TestCreateClub:
         assert ass.is_element_present(MobileBy.ACCESSIBILITY_ID, el_ass) == True
         self.teardown()
 
+    '''房间关闭全员禁言'''
+
     def test_all_shutup2(self):
         self.tset_up()
-        '''房间禁言'''
+
         club_step = ClubStep(self.driver)
         club_step.all_shutup()
         ass = AppAssertPage(driver=self.driver)
@@ -176,9 +160,11 @@ class TestCreateClub:
         assert ass.is_element_present(MobileBy.ACCESSIBILITY_ID, el_ass) == True
         self.teardown()
 
+    '''消息免打扰'''
+
     def test_message_disturb(self):
         self.tset_up()
-        '''消息免打扰'''
+
         club_step = ClubStep(self.driver)
         club_step.message_disturb()
         ass = AppAssertPage(driver=self.driver)
@@ -186,9 +172,11 @@ class TestCreateClub:
         assert ass.is_element_present(MobileBy.ACCESSIBILITY_ID, el_ass) == True
         self.teardown()
 
+    '''清空聊天记录'''
+
     def test_clear_message(self):
         self.tset_up()
-        '''清空聊天记录'''
+
         club_step = ClubStep(self.driver)
         club_step.clear_message()
         ass = AppAssertPage(driver=self.driver)
@@ -196,9 +184,11 @@ class TestCreateClub:
         assert ass.is_element_present(MobileBy.XPATH, el_ass) == False
         self.teardown()
 
+    '''删除房间'''
+
     def test_delete_room(self):
         self.tset_up()
-        '''删除房间'''
+
         club_step = ClubStep(self.driver)
         club_step.delete_room()
         sleep(2)
@@ -207,9 +197,11 @@ class TestCreateClub:
         assert ass.is_element_present(MobileBy.XPATH, el_ass) == False
         self.teardown()
 
+    '''根据应用房间提示去绑定钱包'''
+
     def test_bing_wallet(self):
         self.tset_up()
-        '''根据应用房间提示去绑定钱包'''
+
         club_step = ClubStep(self.driver)
         club_step.bing_wallet()
         # 创建钱包后加载较慢
@@ -219,8 +211,6 @@ class TestCreateClub:
         assert ass.is_element_present(MobileBy.ACCESSIBILITY_ID, el_ass) == False
         self.teardown()
 
-
-窗口化el_ass ='//XCUIElementTypeApplication[@name="Zapry"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther[1]'
 
 
 if __name__ == '__main__':

@@ -7,10 +7,10 @@ from common.wait_util import WaitPage
 
 
 class ClubStep(ClubPage, IMPage):
-
+    """创建部落"""
 
     def create_club(self, name):
-        """创建部落"""
+
         # 点击icon
         self.click(self.el_icon)
         # 点击卡片
@@ -30,7 +30,7 @@ class ClubStep(ClubPage, IMPage):
         # 点击创建部落
         self.click(self.el_create_club)
 
-        '''分享部落到频道'''
+    '''分享部落到频道'''
 
     def share_club_to_club(self):
         # 点击侧边栏第一个部落
@@ -53,7 +53,7 @@ class ClubStep(ClubPage, IMPage):
         # 分享弹窗点击发送
         self.click(self.el_share_send)
 
-        """分享部落到单聊"""
+    """分享部落到单聊"""
 
     def share_club_to_contact(self, contact_name):
         # 点击侧边栏第一个部落
@@ -78,7 +78,7 @@ class ClubStep(ClubPage, IMPage):
         # 分享弹窗点击发送
         self.click(self.el_share_send)
 
-        '''分享部落到群聊'''
+    '''分享部落到群聊'''
 
     def share_club_to_group_chat(self, group_name):
         # 点击侧边栏第一个部落
@@ -102,7 +102,7 @@ class ClubStep(ClubPage, IMPage):
         # 分享弹窗点击发送
         self.click(self.el_share_send)
 
-        '''发一条部落动态'''
+    '''发一条部落动态'''
 
     def send_community(self, title, text):
         # 点击进入部落社区
@@ -116,7 +116,7 @@ class ClubStep(ClubPage, IMPage):
         # 点击发布
         self.click(self.el_release)
 
-        '''添加聊天房间'''
+    '''添加聊天房间'''
 
     def add_chat_room(self, chart_room):
         # 点击 部落管理 后面的 + 号
@@ -128,7 +128,7 @@ class ClubStep(ClubPage, IMPage):
         # 创建房间
         self.click(self.el_create_button)
 
-        '''添加DAPP房间'''
+    '''添加DAPP房间'''
 
     def add_dapp_room(self, dapp_room, dapp_link, dapp_text):
         # 点击 部落管理 后面的 + 号
@@ -145,61 +145,7 @@ class ClubStep(ClubPage, IMPage):
         self.click(self.el_dapp_done)
         # self.swipe(123,123,432,422)
 
-        '''频道发消息'''
-
-    def send_message_to_channel(self, text):
-        # 选择侧边栏第一个部落
-        self.click(self.el_club1)
-        # 网卡的时候加载慢，使用显式等待
-        self.driver.implicitly_wait(10)
-        # 选择”聊天房间“房间
-        self.click(self.el_choose_ChartRoom1)
-        # 输入框内输入消息
-        self.input(self.el_input_IM, text)
-        # 发送消息
-        self.click(self.el_send_message)
-
-        '''频道发图片'''
-
-    def send_picture_to_channel(self):
-        # 选择侧边栏第一个部落
-        self.click(self.el_club1)
-        # 选择”聊天房间“房间
-        self.click(self.el_choose_ChartRoom1)
-        # 点开更多面板
-        self.click(self.el_IM_more)
-        # 进入相册
-        self.click(self.el_photo_choose)
-        # 上滑两次确保到了相册顶部
-        self.down_slide()
-        self.down_slide()
-        self.driver.implicitly_wait(10)
-        # 选择第4张图片
-        self.click(self.el_picture_choose)
-        # 点击发送
-        self.click(self.el_send_picture)
-
-        '''频道发视频'''
-
-    def send_video_to_channel(self):
-        # 选择侧边栏第一个部落
-        self.click(self.el_club1)
-        # 选择”聊天房间“房间
-        self.click(self.el_choose_ChartRoom1)
-        # 点开更多面板
-        self.click(self.el_IM_more)
-        # 进入相册
-        self.click(self.el_photo_choose)
-        # 上滑两次确保到了相册顶部
-        self.down_slide()
-        self.down_slide()
-        self.driver.implicitly_wait(10)
-        # 选择第2个视频
-        self.click(self.el_video_choice)
-        # 点击发送
-        self.click(self.el_send_picture)
-
-        '''发布房间公告'''
+    '''发布房间公告'''
 
     def chart_room_announce(self, text):
         # 选择侧边栏第一个部落
@@ -217,7 +163,7 @@ class ClubStep(ClubPage, IMPage):
         # 返回房间
         self.click(self.el_back)
 
-        '''开启全员禁言'''
+    '''开启全员禁言'''
 
     def all_shutup(self):
         # 选择侧边栏第一个部落
@@ -231,7 +177,7 @@ class ClubStep(ClubPage, IMPage):
         # 返回房间
         self.click(self.el_back)
 
-        '''设置免打扰'''
+    '''设置免打扰'''
 
     def message_disturb(self):
         # 选择侧边栏第一个部落
@@ -247,7 +193,7 @@ class ClubStep(ClubPage, IMPage):
         # 返回房间
         self.click(self.el_back)
 
-        '''清空聊天记录'''
+    '''清空聊天记录'''
 
     def clear_message(self):
         # 选择侧边栏第一个部落
@@ -263,7 +209,7 @@ class ClubStep(ClubPage, IMPage):
         # 返回
         self.click(self.el_back)
 
-        '''删除房间'''
+    '''删除房间'''
 
     def delete_room(self):
         # 选择侧边栏第一个部落
@@ -277,7 +223,8 @@ class ClubStep(ClubPage, IMPage):
         # 二次确认
         self.click(self.el_delete_popup)
 
-        '''通过应用房间提示绑定钱包'''
+    '''通过应用房间提示绑定钱包'''
+
     def bing_wallet(self):
         # 选择第一个部落
         self.click(self.el_club1)
@@ -294,7 +241,9 @@ class ClubStep(ClubPage, IMPage):
         # 输入密码并二次确认密码
         for i in range(12):
             self.click(self.el_PayPwd)
-        '''最小化dapp'''
+
+    '''最小化dapp'''
+
     def dapp_windowed(self):
         # 进入第一个部落
         self.click(self.el_club1)
@@ -308,7 +257,8 @@ class ClubStep(ClubPage, IMPage):
         # 点击窗口化
         self.click(self.el_DappRoom_windowed)
 
-        '''关闭dapp'''
+    '''关闭dapp'''
+
     def dapp_close1(self):
         # 进入第一个部落
         self.click(self.el_club1)
@@ -321,14 +271,16 @@ class ClubStep(ClubPage, IMPage):
             print(f'没有出现弹窗或其他原因：{e}')
         self.click(self.el_DappRoom_close)
 
-        '''最小化后再打开全屏'''
+    '''最小化后再打开全屏'''
+
     def dapp_blow_up(self):
         # 先最小化
         self.dapp_windowed()
         # 放大到全屏
         self.click(self.el_DappWindowed_BlowUp)
 
-        '''关闭dapp小窗'''
+    '''关闭dapp小窗'''
+
     def dapp_close2(self):
         # 先最小化
         self.dapp_windowed()

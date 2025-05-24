@@ -11,7 +11,7 @@ from common.data_util import readYaml
 from common.start_app import start_app
 
 
-class TestRedPacket():
+class TestRedPacket:
     '''发红包用例'''
 
     '''单聊发红包'''
