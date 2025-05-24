@@ -118,6 +118,7 @@ class ClubPage(BasePage):
     el_group_search = (MobileBy.XPATH,
                        '//XCUIElementTypeApplication[@name="Zapry"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[3]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeTextField[2]')
     # 选择第一个群聊
+    el_share_group_first = (MobileBy.XPATH,
                              '//XCUIElementTypeApplication[@name="Zapry"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[3]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable[2]/XCUIElementTypeCell[1]')
     # 点击确认
     el_group_confirm = (MobileBy.XPATH, '//XCUIElementTypeButton[@name="确认(1/9)"]')

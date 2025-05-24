@@ -11,7 +11,7 @@ from PageObjct.operation_page.club_step import ClubStep
 from common.data_util import readYaml
 
 
-class TestCreateClub:
+class TestClub:
 
     # def test_start_server(self):
     def tset_up(self):
@@ -27,8 +27,11 @@ class TestCreateClub:
     def teardown(self):
         self.driver.quit()
 
+    """创建部落"""
+
     def test_create_club(self):
         self.tset_up()
+
         club_step = ClubStep(self.driver)
         club_step.create_club('部落')
         # 创建过程太慢，需要多等一会
@@ -43,6 +46,7 @@ class TestCreateClub:
 
     def test_share_club_to_club(self):
         self.tset_up()
+
         club_step = ClubStep(self.driver)
         club_step.share_club_to_club()
         sleep(1)
@@ -55,6 +59,7 @@ class TestCreateClub:
 
     def test_share_club_to_contact(self):
         self.tset_up()
+
         club_step = ClubStep(self.driver)
         club_step.share_club_to_contact('204')
         sleep(1)
@@ -67,6 +72,7 @@ class TestCreateClub:
 
     def test_share_club_to_group_chart(self):
         self.tset_up()
+
         club_step = ClubStep(self.driver)
         club_step.share_club_to_group_chat('2')
         sleep(1)
@@ -79,6 +85,7 @@ class TestCreateClub:
 
     def test_send_community(self):
         self.tset_up()
+
         club_step = ClubStep(self.driver)
         club_step.send_community('这是动态标题', '这是动态内容')
         sleep(2)
@@ -91,6 +98,7 @@ class TestCreateClub:
 
     def test_add_chart_room(self):
         self.tset_up()
+
         club_step = ClubStep(self.driver)
         club_step.add_chat_room('聊天房间')
         sleep(2)
@@ -102,6 +110,7 @@ class TestCreateClub:
 
     def test_add_dapp_room(self):
         self.tset_up()
+
         club_step = ClubStep(self.driver)
         club_step.add_dapp_room('应用房间',
                                 'https://www.baidu.com/s?wd=%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95&rsv_spt=1&rsv_iqid=0x9058a494003119fd&issp=1&f=8&rsv_bp=1&rsv_idx=2&ie=utf-8&tn=baiduhome_pg&rsv_dl=tb&rsv_enter=1&rsv_sug3=38&rsv_sug1=36&rsv_sug7=100&rsv_sug2=0&rsv_btype=i&prefixsug=%25E8%2587%25AA%25E5%258A%25A8%25E5%258C%2596%25E6%25B5%258B%25E8%25AF%2595&rsp=5&inputT=12351&rsv_sug4=15729',
@@ -114,9 +123,11 @@ class TestCreateClub:
             print(e)
             self.teardown()
 
+    '''聊天房间发布公告'''
 
     def test_chart_room_announce(self):
         self.tset_up()
+
         club_step = ClubStep(self.driver)
         club_step.chart_room_announce('欢迎来到聊天房间')
         sleep(2)
@@ -129,6 +140,7 @@ class TestCreateClub:
 
     def test_all_shutup1(self):
         self.tset_up()
+
         club_step = ClubStep(self.driver)
         club_step.all_shutup()
         ass = AppAssertPage(driver=self.driver)
@@ -140,6 +152,7 @@ class TestCreateClub:
 
     def test_all_shutup2(self):
         self.tset_up()
+
         club_step = ClubStep(self.driver)
         club_step.all_shutup()
         ass = AppAssertPage(driver=self.driver)
@@ -151,6 +164,7 @@ class TestCreateClub:
 
     def test_message_disturb(self):
         self.tset_up()
+
         club_step = ClubStep(self.driver)
         club_step.message_disturb()
         ass = AppAssertPage(driver=self.driver)
@@ -162,6 +176,7 @@ class TestCreateClub:
 
     def test_clear_message(self):
         self.tset_up()
+
         club_step = ClubStep(self.driver)
         club_step.clear_message()
         ass = AppAssertPage(driver=self.driver)
@@ -173,6 +188,7 @@ class TestCreateClub:
 
     def test_delete_room(self):
         self.tset_up()
+
         club_step = ClubStep(self.driver)
         club_step.delete_room()
         sleep(2)
@@ -185,6 +201,7 @@ class TestCreateClub:
 
     def test_bing_wallet(self):
         self.tset_up()
+
         club_step = ClubStep(self.driver)
         club_step.bing_wallet()
         # 创建钱包后加载较慢

@@ -1,5 +1,8 @@
+from re import search
+
 from appium.webdriver.common.mobileby import MobileBy
 from selenium.common import ElementNotInteractableException, NoSuchElementException
+from selenium.webdriver import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
@@ -41,19 +44,18 @@ class RedPacketStep(ClubPage, IMPage):
 
 
 
-    '''单聊创建红包'''
+    '''单聊发ALG红包'''
 
-    def create_redpacket1(self, sum, remark, pwd):
+    def create_redpacket_alg(self, text, sum, remark, pwd):
 
         # 去消息tab
         self.click(self.el_message_icon)
-        # 切换到通讯录
-        self.click(self.el_address_book)
-        # 选择第6个好友
-        WebDriverWait(self.driver, 10).until(
-            expected_conditions.element_to_be_clickable((By.XPATH,
-                                                         '//XCUIElementTypeApplication[@name="Zapry"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell[7]')))
-        self.click(self.el_choose_friend_six)
+       # 搜索好友
+        self.input(self.el_address_search,text)
+        self.click(self.el_address_search)
+        self.click(self.el_search_keyboard)
+        # 选择好友203
+        self.click(self.el_friend_203)
         # 聊天室点击+按钮
         self.click(self.el_IM_more)
         # 点击红包
@@ -83,6 +85,10 @@ class RedPacketStep(ClubPage, IMPage):
 
         else:
             pass
+        # 点击下拉icon
+        self.click(self.el_choose_coin)
+        # 代币列表浮层中选择ALG币
+        self.click(self.el_choose_ALG)
         # 输入金额
         self.input(self.el_solo_sum, sum)
         # 输入备注
@@ -94,7 +100,7 @@ class RedPacketStep(ClubPage, IMPage):
 
     '''切换CIQI币发红包'''
 
-    def create_redpacket2(self, sum, remark, pwd):
+    def receive_solo_ciqi(self, sum, remark, pwd):
 
         # 点击消息tab
         self.click(self.el_message_icon)
@@ -103,6 +109,7 @@ class RedPacketStep(ClubPage, IMPage):
         # 加载好友列表，点击第六个好友进入聊天室
         WebDriverWait(self.driver, 10).until(expected_conditions.element_to_be_clickable((By.XPATH,
                                                                                           '//XCUIElementTypeApplication[@name="Zapry"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell[7]')))
+        self.click(self.el_choose_friend_six)
         # 聊天室中点击右下角的+号按钮
         self.click(self.el_IM_more)
         # 点击红包
@@ -120,76 +127,143 @@ class RedPacketStep(ClubPage, IMPage):
         # 输入密码
         self.input(self.el_input_pwd, pwd)
 
-    '''群聊发红包'''
+    '''群聊发CIQI拼手气红包'''
 
     def create_group_redpacket1(self, number, sum, remark, pwd):
-
+        # 点击“消息”tab
         self.click(self.el_message_icon)
+        # 点击“通讯录”
         self.click(self.el_address_book)
+        # 进入“我的群聊列表”
         self.click(self.el_group_chart_list)
-        self.click(self.el_choose_group_first)
+        # 选择群聊"1111"
+        self.click(self.el_choose_group_1111)
+        # 点击“+”
         self.click(self.el_IM_more)
+        # 点击“红包”
         self.click(self.el_red_packet)
+        # 选择红包类型
+        self.click(self.el_choose_redpacket_type)
+        # 选择拼手气红包
+        self.click(self.el_luck_redpacket)
+        # 点击下拉icon
+        self.click(self.el_choose_coin)
+        # 代币列表浮层中选择CIQI币
+        self.click(self.el_choose_CIQI)
+        # 输入红包数量
         self.input(self.el_group_number, number)
+        # 输入红包金额
         self.input(self.el_solo_sum, sum)
+        # 输入红包备注
         self.input(self.el_solo_remark, remark)
+        # 点击创建红包
         self.click(self.el_create_redpacket)
+        # 输入支付密码
         self.input(self.el_input_pwd, pwd)
 
     '''群聊发ALG普通红包'''
 
     def create_group_redpacket2(self, number, sum, remark, pwd):
-
+        # 点击“消息”tab
         self.click(self.el_message_icon)
+        # 点击“通讯录”
         self.click(self.el_address_book)
-        self.click(self.el_message_icon)
-        self.click(self.el_address_book)
+        # 进入“我的群聊列表”
         self.click(self.el_group_chart_list)
-        self.click(self.el_choose_group_first)
+        # 选择群聊"1111"
+        self.click(self.el_choose_group_1111)
+        # 点击“+”
         self.click(self.el_IM_more)
+        # 点击“红包”
         self.click(self.el_red_packet)
+        # 选择红包类型
         self.click(self.el_choose_redpacket_type)
+        # 选择普通红包
         self.click(self.el_common_redpacket)
-        self.input(self.el_group_number, number)
+        # 点击下拉icon
         self.click(self.el_choose_coin)
-        self.click(self.el_choose_ALG)
+        # 代币列表浮层中选择CIQI币
+        self.click(self.el_choose_CIQI)
+        # 输入红包数量
+        self.input(self.el_group_number, number)
+        # 输入红包金额
         self.input(self.el_solo_sum, sum)
+        # 输入红包备注
         self.input(self.el_solo_remark, remark)
+        # 点击创建红包
         self.click(self.el_create_redpacket)
+        # 输入支付密码
         self.input(self.el_input_pwd, pwd)
 
-    '''频道发红包'''
+    '''频道发ALG拼手气红包'''
 
     def create_channel_redpacket1(self, number, sum, remark, pwd):
-
-        self.click(self.el_club1)
+        # 选择“新赛季”部落
+        self.find_club()
+        # 选择“日常聊天”房间
         self.click(self.el_choose_chart_room)
+        # 点击“+”
         self.click(self.el_IM_more)
+        # 点击“红包”
         self.click(self.el_red_packet)
+        # 选择红包类型
+        self.click(self.el_choose_redpacket_type)
+        # 选择拼手气红包
+        self.click(self.el_luck_redpacket)
+        # 点击下拉icon
+        self.click(self.el_choose_coin)
+        # 代币列表浮层中选择ALG币
+        self.click(self.el_choose_ALG)
+        # 输入红包数量
         self.input(self.el_channel_number, number)
+        # 输入红包金额
         self.input(self.el_solo_sum, sum)
+        # 输入红包备注
         self.input(self.el_solo_remark, remark)
+        # 创建红包
         self.click(self.el_create_redpacket)
+        # 输入支付密码
         self.input(self.el_input_pwd, pwd)
 
     '''频道发CIQI普通红包'''
 
     def create_channel_redpacket2(self, number, sum, remark, pwd):
+        # 选择“新赛季”部落
         self.find_club()
+        # 选择“日常聊天”房间
         self.click(self.el_choose_chart_room)
+        # 点击“+”
         self.click(self.el_IM_more)
+        # 点击“红包”
         self.click(self.el_red_packet)
+        # 选择红包类型
         self.click(self.el_choose_redpacket_type)
+        # 选择拼手气红包
         self.click(self.el_common_redpacket)
-        self.input(self.el_channel_number, number)
+        # 点击下拉icon
         self.click(self.el_choose_coin)
+        # 代币列表浮层中选择CIQI币
         self.click(self.el_choose_CIQI)
-        self.input(self.el_channel_sum, sum)
-        self.input(self.el_channel_remark, remark)
+        # 输入红包数量
+        self.input(self.el_channel_number, number)
+        # 输入红包金额
+        self.input(self.el_solo_sum, sum)
+        # 输入红包备注
+        self.input(self.el_solo_remark, remark)
+        # 创建红包
         self.click(self.el_create_redpacket)
+        # 输入支付密码
         self.input(self.el_input_pwd, pwd)
 
-    '''领红包'''
-    def receive_redpacket(self):
-        self.click(self.el_red_packet)
+    '''单聊领红包'''
+    def receive_solo_alg(self):
+        # 点击底部“消息”tab
+        self.click(self.el_message_icon)
+        # 进入与好友202的聊天室
+        self.click(self.el_friend_202)
+        # 选择ALG红包
+        self.click(self.el_solo_ALG)
+        # 点击开红包
+        self.click(self.el_open_red_package)
+
 

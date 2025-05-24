@@ -1,13 +1,16 @@
-from logging import exception
+
 from time import sleep
 
 from PageObjct.element_page.IM_page import IMPage
 from PageObjct.element_page.club_page import ClubPage
-from common.wait_util import WaitPage
+
 
 
 class ClubStep(ClubPage, IMPage):
-        """创建部落"""
+    """创建部落"""
+
+    def create_club(self, name):
+
         # 点击icon
         self.click(self.el_icon)
         # 点击卡片
@@ -91,6 +94,7 @@ class ClubStep(ClubPage, IMPage):
         self.input(self.el_group_search, group_name)
         sleep(1)
         # 选择第一个群聊
+        self.click(self.el_share_group_first)
         sleep(1)
         # 点击确认
         self.click(self.el_group_confirm)
@@ -141,7 +145,7 @@ class ClubStep(ClubPage, IMPage):
         self.click(self.el_dapp_done)
         # self.swipe(123,123,432,422)
 
-        '''发布房间公告'''
+    '''发布房间公告'''
 
     def chart_room_announce(self, text):
         # 选择侧边栏第一个部落

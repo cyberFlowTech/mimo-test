@@ -5,8 +5,23 @@ from Base.base_page import BasePage
 
 
 class IMPage(BasePage):
-    # 底部消息table
+    '''消息tab'''
+    # 底部“消息”table
     el_message_icon = (MobileBy.ACCESSIBILITY_ID, 'message_unselected_icon_light')
+    # +号
+    el_add = (MobileBy.ACCESSIBILITY_ID, 'navigation add x24')
+    # 发起群聊
+    el_create_group = (MobileBy.ACCESSIBILITY_ID, '发起群聊')
+    # 通讯录搜索
+    el_address_search = (MobileBy.CLASS_NAME, 'XCUIElementTypeTextField')
+    # 键盘上的”搜索“按钮
+    el_search_keyboard = (MobileBy.ACCESSIBILITY_ID, 'Search')
+    # 好友203
+    el_friend_203 = MobileBy.ACCESSIBILITY_ID, '好友成203(203)'
+    # 好友202
+    el_friend_202 = MobileBy.ACCESSIBILITY_ID, 'new202'
+    # 群聊“1111”
+    el_group_1111 = MobileBy.ACCESSIBILITY_ID, '1111'
     '''通讯录'''
     # 通讯录
     el_address_book = (MobileBy.XPATH, '//XCUIElementTypeStaticText[@name="通讯录"]')
@@ -18,9 +33,9 @@ class IMPage(BasePage):
     # 我的群聊
     el_group_chart_list = (MobileBy.XPATH,
                            '//XCUIElementTypeApplication[@name="Zapry"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell[1]/XCUIElementTypeButton[2]')
-    # 第一个群聊
-    el_choose_group_first = (MobileBy.XPATH,
-                             '//XCUIElementTypeApplication[@name="Zapry"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell[1]')
+    # 群聊"1111"
+    el_choose_group_1111 = (MobileBy.ACCESSIBILITY_ID,'1111')
+
     '''聊天室'''
     # 消息输入框
     el_input_IM = (MobileBy.XPATH,
@@ -28,7 +43,7 @@ class IMPage(BasePage):
     # 发送消息按钮
     el_send_message = (MobileBy.XPATH, '//XCUIElementTypeButton[@name="chat send message light"]')
     # +号更多按钮
-    el_IM_more = (MobileBy.XPATH, '//XCUIElementTypeButton[@name="chat more light"]')
+    el_IM_more = (By.XPATH, '//XCUIElementTypeButton[@name="chat more light"]')
     # 相册
     el_photo_choose = (MobileBy.ACCESSIBILITY_ID, 'chat_more_album_light')
     # 拍照
@@ -44,9 +59,13 @@ class IMPage(BasePage):
     # 文件
     el_document = (MobileBy.ACCESSIBILITY_ID, 'chat_more_document_light')
     # 选择图片
+    el_picture_choose = (MobileBy.XPATH,
+                         '//XCUIElementTypeApplication[@name="Zapry"]/XCUIElementTypeWindow/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView/XCUIElementTypeCell[4]/XCUIElementTypeOther/XCUIElementTypeButton')
     # 发送图片
     el_send_picture = (MobileBy.ACCESSIBILITY_ID, '发送(1)')
     # 选择视频
+    el_video_choice = (MobileBy.XPATH,
+                       '(//XCUIElementTypeImage[@name="/var/containers/Bundle/Application/7024A092-04C5-4391-8650-52A234FC16EB/Zapry.app/TZImagePickerController.bundle/photo_def_photoPickerVc@2x.png"])[2]')
 
     '''发红包'''
     # 绑定钱包弹窗-立即设置
@@ -89,4 +108,30 @@ class IMPage(BasePage):
     el_input_pwd = (By.XPATH,
                     '//XCUIElementTypeApplication[@name="Zapry"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[1]/XCUIElementTypeSecureTextField')
     '''领红包'''
-    # 选择自动化红包
+    # 单聊自动化ALG红包
+    el_solo_ALG = MobileBy.ACCESSIBILITY_ID,'单聊自动化ALG红包'
+    # 单聊自动化CIQI红包
+    el_solo_CIQI = MobileBy.ACCESSIBILITY_ID,'单聊自动化CIQI红包'
+    # 群聊自动化CIQI拼手气红包
+    el_group_lucky_CIQI = MobileBy.ACCESSIBILITY_ID, '群聊自动化CIQI拼手气红包'
+    # 群聊自动化ALG普通红包
+    el_group_common_ALG = MobileBy.ACCESSIBILITY_ID, '群聊自动化ALG普通红包'
+    # 频道自动化ALG拼手气红包
+    el_channel_lucky_ALG = MobileBy.ACCESSIBILITY_ID, '频道自动化ALG拼手气红包'
+    # 频道自动化CIQI普通红包
+    el_channel_common_CIQI = MobileBy.ACCESSIBILITY_ID, '频道自动化CIQI普通红包'
+    # 开红包
+    el_open_red_package = MobileBy.ACCESSIBILITY_ID,'red_bag_open_button'
+
+    '''单聊设置'''
+    # 进入聊天设置
+    el_chart_setting = (MobileBy.XPATH,'//XCUIElementTypeButton[@name="chat setting light"]')
+    # 拉好友建群
+    el_chart_setting_add = (MobileBy.ACCESSIBILITY_ID,'chat setting add')
+    # 建群选择第一个好友
+    el_add_first = (MobileBy.XPATH,'(//XCUIElementTypeButton[@name="group user unselect"])[1]')
+    # 建群选择第二个好友
+    el_add_second = (MobileBy.ACCESSIBILITY_ID, '(//XCUIElementTypeButton[@name="group user unselect"])[2]')
+    # 确认建群
+    el_add_done1 = (MobileBy.XPATH,'//XCUIElementTypeStaticText[@name="完成(1/9)"]')
+    el_add_done2 = (MobileBy.XPATH,'//XCUIElementTypeButton[@name="完成(2/9)"]')
