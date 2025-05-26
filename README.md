@@ -1,4 +1,5 @@
 UI自动化脚本使用指南
+
 1、启动appium inspector时手机上的webDriverAgent被删除
 未知原因：WebDriverAgent有时候无法启动app
 解决方案：手机安装好Automation Running后，等一会在启动Appium Inspector
