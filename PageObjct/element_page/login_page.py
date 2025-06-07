@@ -2,6 +2,8 @@ from time import sleep
 from tkinter.font import names
 
 from appium.webdriver.common.mobileby import MobileBy
+from selenium.webdriver.common.by import By
+
 from Base.base_page import BasePage
 
 
@@ -42,10 +44,15 @@ class LoginPage(BasePage):
     '''我的tab'''
     # 底部“我的”tab
     el_my = MobileBy.ACCESSIBILITY_ID, 'mine_unselected_icon_light'
+    # el_my = By.XPATH,'//XCUIElementTypeImage[@name="mine_unselected_icon_light"]'
     # 退出登录
     el_logout = MobileBy.XPATH, '(//XCUIElementTypeButton[@name="退出登录"])[2]'
     # 退出登录二次确认
     el_popup_logout_yes = MobileBy.XPATH, '//XCUIElementTypeButton[@name="确定"]'
     # 登录其他账号
     el_login_another = MobileBy.XPATH,'//XCUIElementTypeStaticText[@name="登录其他账号"]'
-
+    '''聊天室'''
+    # 返回
+    el_go_back = MobileBy.ACCESSIBILITY_ID, '返回'
+    # 搜索返回
+    el_search_goback = MobileBy.XPATH,'//XCUIElementTypeStaticText[@name="取消"]'

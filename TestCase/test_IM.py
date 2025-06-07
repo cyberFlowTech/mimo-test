@@ -15,8 +15,8 @@ class TestIM:
         club_step.IM_channel_message('频道自动化消息')
 
         ass = AppAssertPage(self.driver)
-        el = "频道自动化消息"
-        assert ass.is_element_present(MobileBy.ACCESSIBILITY_ID,el) == True
+        el_ass = "频道自动化消息"
+        assert ass.is_element_present(MobileBy.ACCESSIBILITY_ID,el_ass) == True,f'断言失败，元素{el_ass}不存在'
 
     '''在频道发图片'''
     def test_im_channel_picture(self,start_app):
@@ -29,7 +29,7 @@ class TestIM:
         ass = AppAssertPage(self.driver)
         # 被检查的元素
         el_ass = '/var/mobile/Containers/Data/Application/0DB0277E-94E9-4047-98E2-4932E00004F5/Library/Caches/1744789632269_4A1D0F12-BD50-4546-BA6F-81505E52941E.jpg'
-        assert ass.is_element_present(MobileBy.ACCESSIBILITY_ID, el_ass) == True
+        assert ass.is_element_present(MobileBy.ACCESSIBILITY_ID, el_ass) == True,f'断言失败，元素{el_ass}不存在'
 
     '''在频道发视频'''
     def test_im_channel_video(self,start_app):
@@ -41,7 +41,7 @@ class TestIM:
         ass = AppAssertPage(self.driver)
         # 被检查的元素
         el_ass = '/var/mobile/Containers/Data/Application/0DB0277E-94E9-4047-98E2-4932E00004F5/Library/Caches/1744789632269_4A1D0F12-BD50-4546-BA6F-81505E52941E.jpg'
-        assert ass.is_element_present(MobileBy.ACCESSIBILITY_ID, el_ass) == True
+        assert ass.is_element_present(MobileBy.ACCESSIBILITY_ID, el_ass) == True,f'断言失败，元素{el_ass}不存在'
 
     '''单聊发消息'''
     def test_im_solo_message(self,start_app):
@@ -50,7 +50,7 @@ class TestIM:
         step.IM_solo_message("自动化单聊消息")
         ass = AppAssertPage(self.driver)
         el_ass = '自动化单聊消息'
-        assert ass.is_element_present(MobileBy.ACCESSIBILITY_ID, el_ass) == True
+        assert ass.is_element_present(MobileBy.ACCESSIBILITY_ID, el_ass) == True,f'断言失败，元素{el_ass}不存在'
 
     '''在单聊发图片'''
 
@@ -64,7 +64,7 @@ class TestIM:
         ass = AppAssertPage(self.driver)
         # 被检查的元素
         el_ass = '/var/mobile/Containers/Data/Application/0DB0277E-94E9-4047-98E2-4932E00004F5/Library/Caches/1744789632269_4A1D0F12-BD50-4546-BA6F-81505E52941E.jpg'
-        assert ass.is_element_present(MobileBy.ACCESSIBILITY_ID, el_ass) == True
+        assert ass.is_element_present(MobileBy.ACCESSIBILITY_ID, el_ass) == True,f'断言失败，元素{el_ass}不存在'
 
     '''在单聊发视频'''
 
@@ -77,7 +77,7 @@ class TestIM:
         ass = AppAssertPage(self.driver)
         # 被检查的元素
         el_ass = '/var/mobile/Containers/Data/Application/0DB0277E-94E9-4047-98E2-4932E00004F5/Library/Caches/1744789632269_4A1D0F12-BD50-4546-BA6F-81505E52941E.jpg'
-        assert ass.is_element_present(MobileBy.ACCESSIBILITY_ID, el_ass) == True
+        assert ass.is_element_present(MobileBy.ACCESSIBILITY_ID, el_ass) == True,f'断言失败，元素{el_ass}不存在'
 
     '''群聊发消息'''
 
@@ -87,7 +87,7 @@ class TestIM:
         step.IM_group_message("自动化群聊消息")
         ass = AppAssertPage(self.driver)
         el_ass = '自动化群聊消息'
-        assert ass.is_element_present(MobileBy.ACCESSIBILITY_ID, el_ass) == True
+        assert ass.is_element_present(MobileBy.ACCESSIBILITY_ID, el_ass) == True,f'断言失败，元素{el_ass}不存在'
 
     '''在群聊发图片'''
 
@@ -101,7 +101,7 @@ class TestIM:
         ass = AppAssertPage(self.driver)
         # 被检查的元素
         el_ass = '/var/mobile/Containers/Data/Application/0DB0277E-94E9-4047-98E2-4932E00004F5/Library/Caches/1744789632269_4A1D0F12-BD50-4546-BA6F-81505E52941E.jpg'
-        assert ass.is_element_present(MobileBy.ACCESSIBILITY_ID, el_ass) == True
+        assert ass.is_element_present(MobileBy.ACCESSIBILITY_ID, el_ass) == True,f'断言失败，元素{el_ass}不存在'
 
     '''在群聊发视频'''
 
@@ -114,26 +114,43 @@ class TestIM:
         ass = AppAssertPage(self.driver)
         # 被检查的元素
         el_ass = '/var/mobile/Containers/Data/Application/0DB0277E-94E9-4047-98E2-4932E00004F5/Library/Caches/1744789632269_4A1D0F12-BD50-4546-BA6F-81505E52941E.jpg'
-        assert ass.is_element_present(MobileBy.ACCESSIBILITY_ID, el_ass) == True
+        assert ass.is_element_present(MobileBy.ACCESSIBILITY_ID, el_ass) == True,f'断言失败，元素{el_ass}不存在'
 
     '''拉人创建群聊'''
 
-    def test_creat_group1(self, start_app):
+    def test_create_group1(self, start_app):
         self.driver = start_app
         club_step = IMStep(self.driver)
-        club_step.creat_group1()
+        club_step.create_group1()
         sleep(2)
         ass = AppAssertPage(self.driver)
         el_ass = '//XCUIElementTypeStaticText[@name="new202创建了群聊"]'
-        assert ass.is_element_present(MobileBy.XPATH,el_ass) == True
+        assert ass.is_element_present(MobileBy.XPATH,el_ass) == True,f'断言失败，元素{el_ass}不存在'
 
     '''选人创建群聊'''
-    def test_creat_group2(self, start_app):
+    def test_create_group2(self, start_app):
         self.driver = start_app
         club_step = IMStep(self.driver)
-        club_step.creat_group2()
+        club_step.create_group2()
         sleep(2)
         ass = AppAssertPage(self.driver)
         el_ass = '//XCUIElementTypeStaticText[@name="new202创建了群聊"]'
-        assert ass.is_element_present(MobileBy.XPATH,el_ass) == True
+        assert ass.is_element_present(MobileBy.XPATH,el_ass) == True,f'断言失败，元素{el_ass}不存在'
 
+    '''修改群名'''
+    def test_change_group_name(self,start_app):
+        self.driver = start_app
+        club_step = IMStep(self.driver)
+        club_step.change_group_name('自动化群名')
+        ass =  AppAssertPage(self.driver)
+        el_ass = 'new202将群名称修改为“自动化群名”'
+        assert ass.is_element_present(MobileBy.ACCESSIBILITY_ID,el_ass) == True,f'断言失败，元素{el_ass}不存在'
+
+    '''拉人进群'''
+    def test_add_member(self,start_app):
+        self.driver = start_app
+        club_step = IMStep(self.driver)
+        club_step.add_member()
+        ass = AppAssertPage(self.driver)
+        el_ass = 'new202邀请201加入了群聊'
+        assert ass.is_element_present(MobileBy.ACCESSIBILITY_ID,el_ass) == True,f'断言失败，元素{el_ass}不存在'

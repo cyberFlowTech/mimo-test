@@ -1,3 +1,5 @@
+from time import sleep
+
 from Base.base_page import BasePage
 from PageObjct.element_page.IM_page import IMPage
 from PageObjct.element_page.club_page import ClubPage
@@ -127,7 +129,7 @@ class IMStep(IMPage,ClubPage):
         # 点击我的群聊
         self.click(self.el_group_chart_list)
         # 选择第1个群聊
-        self.click(self.el_choose_group_first)
+        self.click(self.el_group_1111)
         # 输入框输入消息
         self.input(self.el_input_IM, message)
         # 点击发送
@@ -143,7 +145,7 @@ class IMStep(IMPage,ClubPage):
         # 点击我的群聊
         self.click(self.el_group_chart_list)
         # 选择第1个群聊
-        self.click(self.el_choose_group_first)
+        self.click(self.el_group_1111)
         # 点开更多面板
         self.click(self.el_IM_more)
         # 进入相册
@@ -167,7 +169,7 @@ class IMStep(IMPage,ClubPage):
         # 点击我的群聊
         self.click(self.el_group_chart_list)
         # 选择第1个群聊
-        self.click(self.el_choose_group_first)
+        self.click(self.el_group_1111)
         # 点开更多面板
         self.click(self.el_IM_more)
         # 进入相册
@@ -182,7 +184,7 @@ class IMStep(IMPage,ClubPage):
         self.click(self.el_send_picture)
 
     '''拉人建群'''
-    def creat_group1(self):
+    def create_group1(self):
         # 去消息tab
         self.click(self.el_message_icon)
         # 点击通讯录
@@ -199,7 +201,7 @@ class IMStep(IMPage,ClubPage):
         self.click(self.el_add_done1)
 
     '''选人创建群聊'''
-    def creat_group2(self):
+    def create_group2(self):
         # 点击消息tab
         self.click(self.el_message_icon)
         # 点击+号
@@ -212,3 +214,42 @@ class IMStep(IMPage,ClubPage):
         self.click(self.el_add_second)
         # 点击完成
         self.click(self.el_add_done2)
+
+    '''修改群名'''
+    def change_group_name(self,name):
+        # 点击消息tab
+        self.click(self.el_message_icon)
+        # 点击消息列表第一个item
+        self.click(self.el_item_first)
+        # 点击群聊设置
+        self.click(self.el_chart_setting)
+        # 点击群聊名称
+        self.click(self.el_setting_group_name)
+        # 清除历史群名
+        self.click(self.el_setting_clear_name)
+        # 输入新群名
+        self.input(self.el_setting_set_name,name)
+        # 保存
+        self.click(self.el_setting_save_name)
+        # 返回聊天室
+        self.click(self.el_setting_go_back)
+
+
+    '''拉人进群'''
+    def add_member(self):
+        # 点击消息tab
+        self.click(self.el_message_icon)
+        # 点击消息列表第一个item
+        self.click(self.el_item_first)
+        # 点击群聊设置
+        self.click(self.el_chart_setting)
+        # 点击添加成员
+        self.press(270,170)
+        # 选择第五位好友
+        self.click(self.el_add_five)
+        # 点击完成
+        self.click(self.el_add_done1)
+        sleep(2)
+        # 手势右滑返回聊天室
+        self.right_slide()
+
