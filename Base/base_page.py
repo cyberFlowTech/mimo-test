@@ -1,4 +1,5 @@
 from appium import webdriver
+from appium.webdriver.common.touch_action import TouchAction
 
 
 class BasePage:
@@ -46,3 +47,24 @@ class BasePage:
     # 下拉
     def down_slide(self):
         self.driver.swipe(111, 209, 111, 641)
+
+    # 长按
+    def long_press(self,element, duration_ms=2000):
+        """
+        执行长按操作
+        :param element: 要长按的元素
+        :param duration_ms: 长按持续时间(毫秒)
+        """
+        action = TouchAction(self.driver)
+        action.long_press(element, duration=duration_ms).release().perform()
+
+    # 单点
+    def press(self,x, y, duration_ms=100):
+        """
+        通过坐标执行点击操作
+        :param x: 横坐标
+        :param y: 纵坐标
+        :param duration_ms: 点击持续时间(毫秒)
+        """
+        action = TouchAction(self.driver)
+        action.press(x=x, y=y).wait(duration_ms).release().perform()

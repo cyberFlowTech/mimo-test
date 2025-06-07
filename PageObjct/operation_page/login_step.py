@@ -1,4 +1,5 @@
 from appium.webdriver.common.mobileby import MobileBy
+from selenium.webdriver.common.by import By
 
 from PageObjct.element_page.login_page import LoginPage
 from time import sleep
@@ -78,13 +79,31 @@ class LoginStep(LoginPage):
         self.click(self.el_login_another)
 
     def switch_account_203(self):
-        go_back = MobileBy.ACCESSIBILITY_ID,'返回'
-        self.click(go_back)
+        # # 聊天室返回
+        # self.click(self.el_go_back)
+        # element = self.driver.find_elements(By.XPATH,'//XCUIElementTypeStaticText[@name="取消"]')
+        # if element:
+        #     element[0].click()
+        # else:
+        #     pass
+        # 搜索页面返回
+        # self.click(self.el_search_goback)
+        # 退出账号
         self.logout()
+        # 登录账号
         self.login1('new203', 'Sta12345')
 
     def switch_account_202(self):
-        go_back = MobileBy.ACCESSIBILITY_ID, '返回'
-        self.click(go_back)
+        # # 聊天室返回
+        # self.click(self.el_go_back)
+        # element = self.driver.find_elements(By.XPATH,'//XCUIElementTypeStaticText[@name="取消"]')
+        # if element:
+        #     element[0].click()
+        # else:
+        #     pass
+        # 搜索页面返回
+        # self.click(self.el_search_goback)
+        # 退出账号
         self.logout()
+        # 登录账号
         self.login1('new202', 'Sta12345')

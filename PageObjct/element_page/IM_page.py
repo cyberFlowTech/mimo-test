@@ -20,8 +20,9 @@ class IMPage(BasePage):
     el_friend_203 = MobileBy.ACCESSIBILITY_ID, '好友成203(203)'
     # 好友202
     el_friend_202 = MobileBy.ACCESSIBILITY_ID, 'new202'
-    # 群聊“1111”
-    el_group_1111 = MobileBy.ACCESSIBILITY_ID, '1111'
+    # 第一个item
+    el_item_first = (MobileBy.XPATH,'//XCUIElementTypeApplication[@name="Zapry"]/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell[1]')
+
     '''通讯录'''
     # 通讯录
     el_address_book = (MobileBy.XPATH, '//XCUIElementTypeStaticText[@name="通讯录"]')
@@ -34,7 +35,7 @@ class IMPage(BasePage):
     el_group_chart_list = (MobileBy.XPATH,
                            '//XCUIElementTypeApplication[@name="Zapry"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell[1]/XCUIElementTypeButton[2]')
     # 群聊"1111"
-    el_choose_group_1111 = (MobileBy.ACCESSIBILITY_ID,'1111')
+    el_group_1111 = (MobileBy.ACCESSIBILITY_ID, '1111')
 
     '''聊天室'''
     # 消息输入框
@@ -123,15 +124,27 @@ class IMPage(BasePage):
     # 开红包
     el_open_red_package = MobileBy.ACCESSIBILITY_ID,'red_bag_open_button'
 
-    '''单聊设置'''
+    '''群聊设置'''
     # 进入聊天设置
     el_chart_setting = (MobileBy.XPATH,'//XCUIElementTypeButton[@name="chat setting light"]')
+    # 返回
+    el_setting_go_back = (MobileBy.ACCESSIBILITY_ID,'返回')
     # 拉好友建群
     el_chart_setting_add = (MobileBy.ACCESSIBILITY_ID,'chat setting add')
     # 建群选择第一个好友
     el_add_first = (MobileBy.XPATH,'(//XCUIElementTypeButton[@name="group user unselect"])[1]')
     # 建群选择第二个好友
-    el_add_second = (MobileBy.ACCESSIBILITY_ID, '(//XCUIElementTypeButton[@name="group user unselect"])[2]')
+    el_add_second = (MobileBy.XPATH, '(//XCUIElementTypeButton[@name="group user unselect"])[2]')
+    # 拉人选择我第五位好友
+    el_add_five = (MobileBy.XPATH,'(//XCUIElementTypeButton[@name="group user unselect"])[5]')
     # 确认建群
     el_add_done1 = (MobileBy.XPATH,'//XCUIElementTypeStaticText[@name="完成(1/9)"]')
     el_add_done2 = (MobileBy.XPATH,'//XCUIElementTypeButton[@name="完成(2/9)"]')
+    # 群聊名称
+    el_setting_group_name = (MobileBy.ACCESSIBILITY_ID,'群聊名称')
+    # 清除名称
+    el_setting_clear_name = (MobileBy.ACCESSIBILITY_ID,'清除文本')
+    # 输入群聊名称
+    el_setting_set_name = (MobileBy.CLASS_NAME,'XCUIElementTypeTextField')
+    # 保存群聊名称
+    el_setting_save_name = (MobileBy.XPATH,'//XCUIElementTypeStaticText[@name="保存"]')
