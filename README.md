@@ -1,4 +1,8 @@
 UI自动化脚本使用指南
+一、准备工作
+安装工具及依赖：https://blog.csdn.net/weixin_45754647/article/details/138233254?spm=1001.2014.3001.5506
+
+二、踩坑汇总
 
 1、启动appium inspector时手机上的webDriverAgent被删除
 
