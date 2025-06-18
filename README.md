@@ -1,6 +1,8 @@
 UI自动化脚本使用指南：
+
 一、准备工作
-安装工具及依赖：https://blog.csdn.net/weixin_45754647/article/details/138233254?spm=1001.2014.3001.5506
+
+1、安装工具及依赖：https://blog.csdn.net/weixin_45754647/article/details/138233254?spm=1001.2014.3001.5506
 
 二、踩坑汇总
 
@@ -25,3 +27,9 @@ appium-python-client跟pytest版本不兼容，建议安装低版本的pytest库
 4、报错：无driver对象。可能是无法正常运行setup
 
 解决方案：在用例中引用setup，或者使用fixtrue装饰器
+
+三、自动化测试流程
+
+1、TestCase文件下找到对应模块/用例，使用命令行运行或者直接run
+
+2、pytest.ini编辑参考https://blog.csdn.net/weixin_63779518/article/details/148471730
