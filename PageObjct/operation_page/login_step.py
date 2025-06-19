@@ -9,6 +9,7 @@ from time import sleep
 
 
 class LoginStep(LoginPage):
+
     '''登录步骤'''
 
     def login1(self, username, password):
